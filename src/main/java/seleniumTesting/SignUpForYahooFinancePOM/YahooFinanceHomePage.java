@@ -10,7 +10,7 @@ public class YahooFinanceHomePage extends BasePage{
 
     @FindBy(id = "header-signin-link")
     private WebElement signInBtn;
-    @FindBy(xpath = "//body/div[@id='consent-page']/div[1]/div[1]/div[1]/form[1]")
+    @FindBy(xpath = "//div[@class='con-wizard']//ancestor::div[@class='wizard-body']//ancestor::div[@class='actions couple']//button")
     private WebElement acceptBtn;
 
 
@@ -19,9 +19,12 @@ public class YahooFinanceHomePage extends BasePage{
         }
 
 
-        public YahooFinanceLoginPage login(){
+        public YahooFinanceLoginPage cookiesClick(){
             acceptBtn.click();
+            return new YahooFinanceLoginPage(driver); }
+
+        public YahooFinanceLoginPage signInClick(){
             signInBtn.click();
             return new YahooFinanceLoginPage(driver);
-    }
+        }
 }

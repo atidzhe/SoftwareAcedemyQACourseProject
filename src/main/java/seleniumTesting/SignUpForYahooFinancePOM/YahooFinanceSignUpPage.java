@@ -3,6 +3,7 @@ package seleniumTesting.SignUpForYahooFinancePOM;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class YahooFinanceSignUpPage extends BasePage{
 
@@ -23,7 +24,7 @@ public class YahooFinanceSignUpPage extends BasePage{
     private WebElement phoneNum;
 
     @FindBy(id = "usernamereg-month")
-    private WebElement month;
+    private WebElement dropdown;
 
     @FindBy(id = "usernamereg-day")
     private WebElement day;
@@ -54,6 +55,9 @@ public class YahooFinanceSignUpPage extends BasePage{
 
         this.phoneNum.clear();
         this.phoneNum.sendKeys(phoneNum);
+
+        Select drop = new Select(dropdown);
+        drop.selectByIndex(3);
 
         this.day.clear();
         this.day.sendKeys(day);
