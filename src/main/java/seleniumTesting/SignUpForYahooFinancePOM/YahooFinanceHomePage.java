@@ -12,7 +12,10 @@ public class YahooFinanceHomePage extends BasePage{
     private WebElement signInBtn;
     @FindBy(xpath = "//div[@class='con-wizard']//ancestor::div[@class='wizard-body']//ancestor::div[@class='actions couple']//button")
     private WebElement acceptBtn;
-
+    @FindBy(id = "yfin-usr-qry")
+    private WebElement searchInput;
+    @FindBy(id = "header-desktop-search-button")
+    private WebElement searchBtn;
 
     public YahooFinanceHomePage(WebDriver driver){
             super(driver);
@@ -27,4 +30,15 @@ public class YahooFinanceHomePage extends BasePage{
             signInBtn.click();
             return new YahooFinanceLoginPage(driver);
         }
+
+        public YahooFinanceLoginPage searchCompany(String companyName){
+        searchInput.sendKeys(companyName);
+            return new YahooFinanceLoginPage(driver);
+        }
+
+        public YahooFinanceLoginPage searchBtn(){
+        searchBtn.click();
+            return new YahooFinanceLoginPage(driver);
+        }
+
 }
