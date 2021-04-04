@@ -1,4 +1,4 @@
-package seleniumTesting.SignUpForYahooFinancePOM;
+package seleniumTesting.YahooFinancePOM;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,12 +10,12 @@ public class YahooFinanceLoginPage extends BasePage {
     private WebElement signUpBtn;
 
 
-    public YahooFinanceLoginPage(WebDriver driver){
+    public YahooFinanceLoginPage(WebDriver driver) {
         super(driver);
     }
 
 
-    public YahooFinanceSignUpPage signUp(){
+    public YahooFinanceSignUpPage signUp() {
         signUpBtn.click();
         return new YahooFinanceSignUpPage(driver);
     }

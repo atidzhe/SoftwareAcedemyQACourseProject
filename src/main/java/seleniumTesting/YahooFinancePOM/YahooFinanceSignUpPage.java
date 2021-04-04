@@ -1,11 +1,11 @@
-package seleniumTesting.SignUpForYahooFinancePOM;
+package seleniumTesting.YahooFinancePOM;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class YahooFinanceSignUpPage extends BasePage{
+public class YahooFinanceSignUpPage extends BasePage {
 
 
     @FindBy(id = "usernamereg-firstName")
@@ -35,27 +35,35 @@ public class YahooFinanceSignUpPage extends BasePage{
     @FindBy(id = "reg-submit-button")
     private WebElement submitBtn;
 
-    public YahooFinanceSignUpPage(WebDriver driver){
+    public YahooFinanceSignUpPage(WebDriver driver) {
         super(driver);
     }
 
 
-    public void enterData(String firstName, String lastName, String email, String password, String phoneNum,String day, String year){
+    public void enterName(String firstName, String lastName) {
         this.firstName.clear();
         this.firstName.sendKeys(firstName);
 
         this.lastName.clear();
         this.lastName.sendKeys(lastName);
+    }
 
+    public void enterEmail(String email) {
         this.email.clear();
         this.email.sendKeys(email);
+    }
 
+    public void enterPassword(String password) {
         this.password.clear();
         this.password.sendKeys(password);
+    }
 
+    public void enterPhoneNumber(String phoneNum) {
         this.phoneNum.clear();
         this.phoneNum.sendKeys(phoneNum);
+    }
 
+    public void enterBirthDate(String day, String year) {
         Select drop = new Select(dropdown);
         drop.selectByIndex(3);
 
@@ -67,7 +75,7 @@ public class YahooFinanceSignUpPage extends BasePage{
     }
 
 
-    public YahooFinanceSignUpPage submitRegistration(){
+    public YahooFinanceSignUpPage submitRegistration() {
         submitBtn.click();
         return new YahooFinanceSignUpPage(driver);
     }

@@ -2,13 +2,12 @@ package seleniumTesting.testCases;
 
 import com.opencsv.exceptions.CsvException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import seleniumTesting.SignUpForYahooFinancePOM.YahooFinanceHomePage;
-import seleniumTesting.SignUpForYahooFinancePOM.YahooFinanceLoginPage;
-import seleniumTesting.SignUpForYahooFinancePOM.YahooFinanceSignUpPage;
+import seleniumTesting.YahooFinancePOM.YahooFinanceHomePage;
+import seleniumTesting.YahooFinancePOM.YahooFinanceLoginPage;
+import seleniumTesting.YahooFinancePOM.YahooFinanceSignUpPage;
 import seleniumTesting.base.TestUtils;
 import seleniumTesting.utils.CsvReader;
 
@@ -16,14 +15,14 @@ import java.io.IOException;
 
 public class YahooFinanceSignUpNegativeDataTest extends TestUtils {
 
-   @DataProvider(name = "signUp-negativeData")
+    @DataProvider(name = "signUp-negativeData")
     public static Object[][] dataProviderFromCsvFile() throws IOException, CsvException {
         return CsvReader.readCsvFile("src/test/resources/signUp-negativeData.csv");
     }
 
 
     @Test(dataProvider = "signUp-negativeData")
-    public void NegativeDataSignUp(String firstName, String lastName, String email, String password, String phoneNum,String day, String year) throws InterruptedException {
+    public void NegativeDataSignUp(String firstName, String lastName, String email, String password, String phoneNum, String day, String year) throws InterruptedException {
 
         YahooFinanceHomePage homePage = new YahooFinanceHomePage(driver);
         YahooFinanceLoginPage loginPage = new YahooFinanceLoginPage(driver);
@@ -32,7 +31,11 @@ public class YahooFinanceSignUpNegativeDataTest extends TestUtils {
         homePage.cookiesClick();
         homePage.signInClick();
         loginPage.signUp();
-        signUpPage.enterData(firstName, lastName, email, password, phoneNum, day, year);
+        signUpPage.enterName(firstName, lastName);
+        signUpPage.enterEmail(email);
+        signUpPage.enterPassword(password);
+        signUpPage.enterPhoneNumber(phoneNum);
+        signUpPage.enterBirthDate(day, year);
         signUpPage.submitRegistration();
 
         String emailError = driver.findElement(By.id("reg-error-yid")).getText();
@@ -49,6 +52,5 @@ public class YahooFinanceSignUpNegativeDataTest extends TestUtils {
         softAssert.assertAll();
 
 
-
-
-}}
+    }
+}
