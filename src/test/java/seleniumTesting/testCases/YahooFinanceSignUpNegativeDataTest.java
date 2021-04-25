@@ -49,7 +49,7 @@ public class YahooFinanceSignUpNegativeDataTest extends TestUtils {
         softAssert.assertEquals(phoneError, "That doesn’t look right, please re-enter your phone number.");
         softAssert.assertEquals(birthDateError, "That doesn’t look right, please re-enter your birthday.");
 
-        softAssert.assertAll();
+        //softAssert.assertAll();
 
 
     }

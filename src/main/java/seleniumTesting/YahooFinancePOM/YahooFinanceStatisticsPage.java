@@ -11,7 +11,7 @@ public class YahooFinanceStatisticsPage extends BasePage {
     private WebElement dividendsInfo;
     @FindBy(xpath = "//span[contains(text(),'Statistics')]")
     private WebElement statisticBtn;
-    @FindBy(xpath = "//span[text()='Price/Book']/../following-sibling::td\n")
+    @FindBy(xpath = "//span[text()='Price/Book']/../following-sibling::td")
     private WebElement priceBook;
 
     public YahooFinanceStatisticsPage(WebDriver driver) {
