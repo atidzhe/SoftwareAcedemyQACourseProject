@@ -43,7 +43,7 @@ public class CheckStatisticsForCompanyStockTest extends TestUtils {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(priceBookValue, priceBook);
         softAssert.assertEquals(companyDevsValue, companyDevs);
-       // softAssert.assertAll();
+      //  softAssert.assertAll();
 
     }
 

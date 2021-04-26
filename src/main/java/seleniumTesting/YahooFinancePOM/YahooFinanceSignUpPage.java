@@ -32,6 +32,9 @@ public class YahooFinanceSignUpPage extends BasePage {
     @FindBy(id = "usernamereg-year")
     private WebElement year;
 
+    @FindBy(id = "usernamereg-freeformGender")
+    private WebElement gender;
+
     @FindBy(id = "reg-submit-button")
     private WebElement submitBtn;
 
@@ -74,7 +77,10 @@ public class YahooFinanceSignUpPage extends BasePage {
         this.year.sendKeys(year);
     }
 
-
+    public void enterGender(String gender) {
+        this.gender.clear();
+        this.gender.sendKeys(gender);
+    }
     public YahooFinanceSignUpPage submitRegistration() {
         submitBtn.click();
         return new YahooFinanceSignUpPage(driver);
